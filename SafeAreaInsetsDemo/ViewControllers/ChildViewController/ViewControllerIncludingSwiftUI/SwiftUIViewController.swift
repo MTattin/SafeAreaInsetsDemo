@@ -29,28 +29,34 @@ final class SwiftUIViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let swiftView: UIView = getSwiftUIView()
-        swiftView.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(swiftView)
-        NSLayoutConstraint.activate([
-            swiftView.topAnchor.constraint(equalTo: container.topAnchor),
-            swiftView.leftAnchor.constraint(equalTo: container.leftAnchor),
-            swiftView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            swiftView.rightAnchor.constraint(equalTo: container.rightAnchor)
-        ])
+        setupSwiftUIView()
     }
 
     @IBAction func tapped(_ sender: UIButton) {
         let vc = UIStoryboard.init(name: "FooViewController", bundle: .main).instantiateInitialViewController()
         parentNavigationController?.pushViewController(vc!, animated: true)
     }
+}
 
-    private func getSwiftUIView() -> UIView {
-        let view: UIView = UIHostingController(
+private extension SwiftUIViewController {
+
+    func setupSwiftUIView() {
+        let hostingController = UIHostingController(
             rootView: SwiftUIView(),
             ignoreSafeArea: ignoreSafeArea
-        ).view
-        view.backgroundColor = .yellow
-        return view
+        )
+        addChild(hostingController)
+        hostingController.view.backgroundColor = .yellow
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(hostingController.view)
+        NSLayoutConstraint.activate(
+            [
+                hostingController.view.topAnchor.constraint(equalTo: container.topAnchor),
+                hostingController.view.leftAnchor.constraint(equalTo: container.leftAnchor),
+                hostingController.view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+                hostingController.view.rightAnchor.constraint(equalTo: container.rightAnchor)
+            ]
+        )
+        hostingController.didMove(toParent: self)
     }
 }
