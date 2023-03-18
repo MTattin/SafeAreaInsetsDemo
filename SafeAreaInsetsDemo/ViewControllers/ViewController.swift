@@ -53,30 +53,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = ignoreSafeArea ? "Safe Area Insets 無効" : "Safe Area Insets 有効"
 
+        addChild(swiftUIViewController)
         stackView.addArrangedSubview(swiftUIViewController.view)
-        if !children.contains(swiftUIViewController) {
-            addChild(swiftUIViewController)
-        }
         swiftUIViewController.didMove(toParent: self)
 
+        addChild(hogeViewControllerOrange)
         stackView.addArrangedSubview(hogeViewControllerOrange.view)
-        if !children.contains(hogeViewControllerOrange) {
-            addChild(hogeViewControllerOrange)
-        }
         hogeViewControllerOrange.didMove(toParent: self)
         hogeViewControllerOrange.colorView.backgroundColor = .orange
 
+        addChild(hogeViewControllerRed)
         stackView.addArrangedSubview(hogeViewControllerRed.view)
-        if !children.contains(hogeViewControllerRed) {
-            addChild(hogeViewControllerRed)
-        }
         hogeViewControllerRed.didMove(toParent: self)
         hogeViewControllerRed.colorView.backgroundColor = .red
 
+        addChild(hogeViewControllerGreen)
         stackView.addArrangedSubview(hogeViewControllerGreen.view)
-        if !children.contains(hogeViewControllerGreen) {
-            addChild(hogeViewControllerGreen)
-        }
         hogeViewControllerGreen.didMove(toParent: self)
         hogeViewControllerGreen.colorView.backgroundColor = .green
     }
