@@ -14,20 +14,20 @@ class ViewController: UIViewController {
     private let hogeViewControllerOrange: HogeViewController
     private let hogeViewControllerRed: HogeViewController
     private let hogeViewControllerGreen: HogeViewController
-    private let ignoreSafeArea: Bool
+    private let viewControllerType: ViewControllerType
 
     init?(
         coder: NSCoder,
         navigationController: UINavigationController?,
-        ignoreSafeArea: Bool
+        viewControllerType: ViewControllerType
     ) {
-        self.ignoreSafeArea = ignoreSafeArea
+        self.viewControllerType = viewControllerType
         self.swiftUIViewController = UIStoryboard(name: "SwiftUIViewController", bundle: .main)
             .instantiateInitialViewController { coder in
                 SwiftUIViewController(
                     coder: coder,
                     parentNavigationController: navigationController,
-                    ignoreSafeArea: ignoreSafeArea
+                    viewControllerType: viewControllerType
                 )
             }!
         self.hogeViewControllerOrange = UIStoryboard(name: "HogeViewController", bundle: .main)
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = ignoreSafeArea ? "Safe Area Insets 無効" : "Safe Area Insets 有効"
+        title = viewControllerType.title
 
         addChild(swiftUIViewController)
         stackView.addArrangedSubview(swiftUIViewController.view)

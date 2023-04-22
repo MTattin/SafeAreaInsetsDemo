@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="00m-TJ-vJw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="00m-TJ-vJw">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,6 @@
         <!--Navigation Controller-->
         <scene sceneID="gdp-2j-T2g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IeQ-e9-tsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="00m-TJ-vJw" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jfn-Uq-fEA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -22,6 +21,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="QId-PZ-wcs"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IeQ-e9-tsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-408" y="-25"/>
         </scene>
@@ -49,10 +49,20 @@
                                     <action selector="tapped無効:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P9I-0N-wWq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czf-FG-278">
+                                <rect key="frame" x="69.666666666666686" y="488.66666666666669" width="254" height="35.000000000000057"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="safeAreaRegions iOS 16.4以上"/>
+                                <connections>
+                                    <action selector="tappedSafeAreaRegion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2cP-q0-wHT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Czf-FG-278" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Ia-i5-fuj"/>
+                            <constraint firstItem="Czf-FG-278" firstAttribute="top" secondItem="5Qc-VD-ufT" secondAttribute="bottom" constant="30" id="G2p-yd-VKA"/>
                             <constraint firstItem="5Qc-VD-ufT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HNa-dB-CQ4"/>
                             <constraint firstItem="5Qc-VD-ufT" firstAttribute="top" secondItem="Tmn-p8-J5y" secondAttribute="bottom" constant="30" id="UUw-6L-Z4L"/>
                             <constraint firstItem="5Qc-VD-ufT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="15" id="Zag-Px-whJ"/>

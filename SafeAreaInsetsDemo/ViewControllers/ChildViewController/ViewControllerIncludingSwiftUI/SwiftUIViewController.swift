@@ -8,7 +8,7 @@ import UIKit
 
 final class SwiftUIViewController: UIViewController {
 
-    private let ignoreSafeArea: Bool
+    private let viewControllerType: ViewControllerType
     private weak var parentNavigationController: UINavigationController?
 
     @IBOutlet private weak var container: UIView!
@@ -16,10 +16,10 @@ final class SwiftUIViewController: UIViewController {
     init?(
         coder: NSCoder,
         parentNavigationController: UINavigationController?,
-        ignoreSafeArea: Bool
+        viewControllerType: ViewControllerType
     ) {
         self.parentNavigationController = parentNavigationController
-        self.ignoreSafeArea = ignoreSafeArea
+        self.viewControllerType = viewControllerType
         super.init(coder: coder)
     }
 
@@ -41,10 +41,35 @@ final class SwiftUIViewController: UIViewController {
 private extension SwiftUIViewController {
 
     func setupSwiftUIView() {
-        let hostingController = UIHostingController(
-            rootView: SwiftUIView(),
-            ignoreSafeArea: ignoreSafeArea
-        )
+        let hostingController: UIHostingController<SwiftUIView>
+        switch viewControllerType {
+        case .ignoreSafeAreaTrue:
+            hostingController = UIHostingController(
+                rootView: SwiftUIView(),
+                ignoreSafeArea: true
+            )
+        case .ignoreSafeAreaFalse:
+            hostingController = UIHostingController(
+                rootView: SwiftUIView(),
+                ignoreSafeArea: false
+            )
+        case .useSafeAreaRegion:
+            hostingController = UIHostingController(
+                rootView: SwiftUIView(),
+                ignoreSafeArea: false
+            )
+            if #available(iOS 16.4.0, *) {
+                hostingController.safeAreaRegions.remove(.all)
+            } else {
+                let alertController = UIAlertController(
+                    title: nil,
+                    message: "iOS 16.4 以上でしか動作しません",
+                    preferredStyle: .alert
+                )
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                present(alertController, animated: true)
+            }
+        }
         addChild(hostingController)
         hostingController.view.backgroundColor = .yellow
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
