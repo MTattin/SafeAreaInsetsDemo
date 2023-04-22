@@ -7,6 +7,7 @@ import SwiftUI
 
 extension UIHostingController {
 
+    @available(iOS, deprecated, message: "This method is deprecated since iOS 16.4. Please use UIHostingController.safeAreaRegions instead.")
     convenience public init(rootView: Content, ignoreSafeArea: Bool) {
         self.init(rootView: rootView)
         if ignoreSafeArea {
