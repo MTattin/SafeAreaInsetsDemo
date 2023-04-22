@@ -54,10 +54,7 @@ private extension SwiftUIViewController {
                 ignoreSafeArea: false
             )
         case .useSafeAreaRegion:
-            hostingController = UIHostingController(
-                rootView: SwiftUIView(),
-                ignoreSafeArea: false
-            )
+            hostingController = UIHostingController(rootView: SwiftUIView())
             if #available(iOS 16.4.0, *) {
                 hostingController.safeAreaRegions.remove(.all)
             } else {
