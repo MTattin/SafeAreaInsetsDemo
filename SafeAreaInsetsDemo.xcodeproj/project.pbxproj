@@ -22,6 +22,7 @@
 		1DB997EC29BF17CB007DC7A8 /* UIHostingControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB997EB29BF17CB007DC7A8 /* UIHostingControllerExtension.swift */; };
 		4C86340229C1D10B00ACE32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C86340029C1D10B00ACE32D /* Main.storyboard */; };
 		4C86340529C1D16100ACE32D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C86340429C1D16100ACE32D /* MainViewController.swift */; };
+		4CB039DE29F3606600ED48D5 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB039DD29F3606600ED48D5 /* ViewControllerType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		1DB997EB29BF17CB007DC7A8 /* UIHostingControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHostingControllerExtension.swift; sourceTree = "<group>"; };
 		4C86340129C1D10B00ACE32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SafeAreaInsetsDemo/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C86340429C1D16100ACE32D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4CB039DD29F3606600ED48D5 /* ViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				4C86340329C1D11800ACE32D /* ViewControllers */,
 				1D3845D129BE004900EEB603 /* AppDelegate.swift */,
 				4C86340429C1D16100ACE32D /* MainViewController.swift */,
+				4CB039DD29F3606600ED48D5 /* ViewControllerType.swift */,
 				4C86340029C1D10B00ACE32D /* Main.storyboard */,
 				1D3845DA29BE004A00EEB603 /* Assets.xcassets */,
 				1D3845DC29BE004A00EEB603 /* LaunchScreen.storyboard */,
@@ -209,6 +212,7 @@
 				1D3845D629BE004900EEB603 /* ViewController.swift in Sources */,
 				1D3845D229BE004900EEB603 /* AppDelegate.swift in Sources */,
 				4C86340529C1D16100ACE32D /* MainViewController.swift in Sources */,
+				4CB039DE29F3606600ED48D5 /* ViewControllerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
